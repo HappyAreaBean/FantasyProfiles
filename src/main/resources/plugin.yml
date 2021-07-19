@@ -1,0 +1,11 @@
+name: FantasyProfiles
+main: cc.happyareabean.fantasyprofiles.FantasyProfiles
+version: ${project.version}
+author: HappyAreaBean
+website: https://fantasyrealms.net
+commands:
+  fantasyprofiles:
+  settings:
+  profile:
+    aliases: [prof]
+
