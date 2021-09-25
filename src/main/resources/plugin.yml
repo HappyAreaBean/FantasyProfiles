@@ -5,7 +5,10 @@ author: HappyAreaBean
 website: https://fantasyrealms.net
 commands:
   fantasyprofiles:
+    description: Main command in FantasyProfiles
   settings:
+    description: Settings menus
   profile:
     aliases: [prof]
+    description: Profile menus
 

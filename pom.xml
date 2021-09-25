@@ -38,16 +38,6 @@
             <systemPath>E:/API/ispigot.jar</systemPath>
         </dependency>
         <dependency>
-            <groupId>org.mongodb</groupId>
-            <artifactId>mongodb-driver-sync</artifactId>
-            <version>3.11.3</version>
-        </dependency>
-        <dependency>
-            <groupId>org.mongodb</groupId>
-            <artifactId>mongodb-driver-reactivestreams</artifactId>
-            <version>1.13.1</version>
-        </dependency>
-        <dependency>
             <groupId>org.imanity.framework</groupId>
             <artifactId>bukkit-common</artifactId>
             <version>0.3b1</version>

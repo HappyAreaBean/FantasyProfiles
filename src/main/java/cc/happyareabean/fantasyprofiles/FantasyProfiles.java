@@ -25,17 +25,10 @@ package cc.happyareabean.fantasyprofiles;
 import cc.happyareabean.fantasyprofiles.commands.MainCommand;
 import cc.happyareabean.fantasyprofiles.commands.ProfileCommand;
 import cc.happyareabean.fantasyprofiles.commands.SettingsCommand;
-import cc.happyareabean.fantasyprofiles.databases.MongoDB;
-import cc.happyareabean.fantasyprofiles.listener.PlayerListener;
-import cc.happyareabean.fantasyprofiles.listener.ProfileMenuListener;
 import cc.happyareabean.fantasyprofiles.listener.MainSettingsMenuListener;
+import cc.happyareabean.fantasyprofiles.listener.ProfileMenuListener;
 import cc.happyareabean.fantasyprofiles.utils.Color;
-import com.mongodb.client.model.Filters;
-import com.mongodb.client.model.FindOneAndReplaceOptions;
-import com.mongodb.client.model.InsertOneOptions;
-import com.mongodb.client.model.UpdateOptions;
 import lombok.Getter;
-import org.bson.Document;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -45,12 +38,11 @@ public class FantasyProfiles extends JavaPlugin {
 
 	@Getter public String prefix = Color.translate("&8[&6FantasyProfiles&8] &e");
 	@Getter public static FantasyProfiles instance;
-	@Getter public MongoDB mongoDB;
 
 	@Override
 	public void onEnable() {
 		instance = this;
-//		mongoDB = new MongoDB();
+
 		startmessage();
 		registercommands();
 		registerevents();
