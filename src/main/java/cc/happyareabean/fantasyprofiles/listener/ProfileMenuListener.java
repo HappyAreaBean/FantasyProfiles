@@ -24,8 +24,6 @@ package cc.happyareabean.fantasyprofiles.listener;
 
 import cc.happyareabean.fantasyprofiles.menu.MainSettingsMenu;
 import cc.happyareabean.fantasyprofiles.utils.Color;
-import de.tr7zw.nbtapi.NBTItem;
-import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;

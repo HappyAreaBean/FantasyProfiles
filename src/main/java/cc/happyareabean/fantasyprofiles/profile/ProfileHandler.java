@@ -20,19 +20,9 @@
  * SOFTWARE.
  */
 
-package cc.happyareabean.fantasyprofiles.listener;
+package cc.happyareabean.fantasyprofiles.profile;
 
-import cc.happyareabean.fantasyprofiles.profile.ProfileManager;
-import cc.happyareabean.fantasyprofiles.utils.AsyncUtils;
-import org.bukkit.entity.Player;
-import org.bukkit.event.EventHandler;
-import org.bukkit.event.Listener;
-import org.bukkit.event.player.PlayerJoinEvent;
+public class ProfileHandler {
 
-public class PlayerListener implements Listener {
-	@EventHandler
-	public void onJoin(PlayerJoinEvent e) {
-		Player player = e.getPlayer();
-		AsyncUtils.runAsync(() -> new ProfileManager(player));
-	}
+	// TODO
 }

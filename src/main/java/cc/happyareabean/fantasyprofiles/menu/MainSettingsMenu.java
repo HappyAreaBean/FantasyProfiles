@@ -22,6 +22,7 @@
 
 package cc.happyareabean.fantasyprofiles.menu;
 import cc.happyareabean.fantasyprofiles.utils.Color;
+import cc.happyareabean.fantasyprofiles.utils.Utils;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
@@ -54,7 +55,7 @@ public class MainSettingsMenu {
 
 		//Create a new inventory
 		Inventory inv = Bukkit.createInventory(null, size, Color.translate("&e&l設定"));
-		fillBorder(inv, backButton);
+		Utils.fillBorder(inv, backButton);
 
 		// Get the empty slot and set the item (loop item list)
 		for (int i = 0; i < itemList.size(); i++) {
@@ -68,24 +69,5 @@ public class MainSettingsMenu {
 			}
 		}
 		return inv;
-	}
-
-	/**
-	 * Fill the inventory with glass pane border
-	 * @param inv Inventory
-	 * @param backButton enable back button or not
-	 */
-	private void fillBorder(Inventory inv, Boolean backButton) {
-		for (int i = 0; i < inv.getSize(); i++) {
-			if ((i <= 8) || (i >= (inv.getSize()) - 9) // bottom and top
-					|| i == 9 || i == 18 // borders
-					|| i == 27 || i == 36
-					|| i == 17 || i == 26
-					|| i == 35 || i == 44)
-				inv.setItem(i, new ItemBuilder(Material.STAINED_GLASS_PANE).name("&f").data(15).build());
-			if (backButton && (i == (inv.getSize() - 9 + 4))) {
-				inv.setItem(i, new ItemBuilder(Material.BARRIER).name("&c&l返回").build());
-			}
-		}
 	}
 }

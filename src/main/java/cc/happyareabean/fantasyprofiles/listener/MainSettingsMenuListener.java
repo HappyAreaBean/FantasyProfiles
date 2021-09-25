@@ -24,7 +24,6 @@ package cc.happyareabean.fantasyprofiles.listener;
 
 import cc.happyareabean.fantasyprofiles.menu.ProfileMenu;
 import cc.happyareabean.fantasyprofiles.utils.Color;
-import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;

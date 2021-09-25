@@ -22,7 +22,6 @@
 
 package cc.happyareabean.fantasyprofiles.commands;
 
-import cc.happyareabean.fantasyprofiles.menu.MainSettingsMenu;
 import cc.happyareabean.fantasyprofiles.menu.ProfileMenu;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;

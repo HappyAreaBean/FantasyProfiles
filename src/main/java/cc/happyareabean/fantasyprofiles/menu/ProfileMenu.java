@@ -22,6 +22,7 @@
 
 package cc.happyareabean.fantasyprofiles.menu;
 import cc.happyareabean.fantasyprofiles.utils.Color;
+import cc.happyareabean.fantasyprofiles.utils.Utils;
 import me.clip.placeholderapi.PlaceholderAPI;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
@@ -38,7 +39,7 @@ public class ProfileMenu {
 	Inventory inv = Bukkit.createInventory(null, 27, Color.translate("&b&l我的個人檔案"));
 
 	public Inventory build(Player player) {
-		fillEmpty(inv);
+		Utils.fillEmpty(inv);
 
 		ItemStack playerhead = new ItemBuilder(Material.SKULL_ITEM)
 				.name(PlaceholderAPI.setPlaceholders(player, "%luckperms_prefix%" + player.getName()))
@@ -77,25 +78,7 @@ public class ProfileMenu {
 		inv.setItem(4, playerhead);
 		inv.setItem(10, mail);
 		inv.setItem(16, settings);
+
 		return inv;
-	}
-
-	private void fillBorder(Inventory inv) {
-		for (int i = 0; i < inv.getSize(); i++) {
-			if ((i <= 8) || (i >= (inv.getSize()) - 9) // bottom and top
-					|| i == 9 || i == 18 // borders
-					|| i == 27 || i == 36
-					|| i == 17 || i == 26
-					|| i == 35 || i == 44)
-				inv.setItem(i, new ItemBuilder(Material.STAINED_GLASS_PANE).name("&f").data(15).build());
-		}
-	}
-
-	private void fillEmpty(Inventory inv) {
-		for (int i = 0; i < inv.getSize(); i++) {
-			if (inv.getItem(i) == null || inv.getItem(i).getType() == Material.AIR) {
-				inv.setItem(i, new ItemBuilder(Material.STAINED_GLASS_PANE).name("&f").data(15).build());
-			}
-		}
 	}
 }

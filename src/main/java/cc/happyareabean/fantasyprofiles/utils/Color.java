@@ -33,6 +33,6 @@ public class Color {
     }
 
     public static List<String> translate(List<String> text) {
-        return (List)text.stream().map(Color::translate).collect(Collectors.toList());
+        return text.stream().map(Color::translate).collect(Collectors.toList());
     }
 }
