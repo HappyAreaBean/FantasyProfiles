@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 HappyAreaBean
+ * Copyright (c) 2022 HappyAreaBean
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -33,6 +33,5 @@ public class PlayerListener implements Listener {
 	@EventHandler
 	public void onJoin(PlayerJoinEvent e) {
 		Player player = e.getPlayer();
-		AsyncUtils.runAsync(() -> new ProfileManager(player));
 	}
 }
