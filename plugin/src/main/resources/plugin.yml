@@ -1,0 +1,16 @@
+name: FantasyProfiles
+main: cc.happyareabean.fantasyprofiles.FantasyProfiles
+version: ${project.version}
+author: HappyAreaBean
+website: https://fantasyrealms.net
+softdepend:
+  - ChatControlRed
+commands:
+  fantasyprofiles:
+    description: Main command in FantasyProfiles
+  settings:
+    description: Settings menus
+  profile:
+    aliases: [prof]
+    description: Profile menus
+
