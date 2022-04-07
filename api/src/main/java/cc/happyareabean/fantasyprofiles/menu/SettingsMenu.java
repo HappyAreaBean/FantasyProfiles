@@ -22,19 +22,46 @@
 
 package cc.happyareabean.fantasyprofiles.menu;
 
+import cc.happyareabean.fantasyprofiles.api.FantasyProfilesAPI;
+import cc.happyareabean.fantasyprofiles.api.SettingsNavItems;
+import cc.happyareabean.fantasyprofiles.utils.Utils;
+import cc.happyareabean.fantasyprofiles.utils.menu.ServerSettingsUtils;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.ipvp.canvas.Menu;
 import org.ipvp.canvas.slot.SlotSettings;
 
-public interface SettingsMenu {
+public class SettingsMenu extends AbstractMenu implements SettingsNavItems {
 
-	Menu build(Player player);
+	@Override
+	public void display(Player player) {
+		Menu menu = this.build(player);
 
-	boolean isReturnButton();
+		// Add navigation
+		ServerSettingsUtils.addSettingNavigation(menu, 0);
 
-	ItemStack getItem(boolean enchanted);
+		// Set up the Green Glass
+		menu.getSlot(this.getOrder()).setItem(this.getItem(true));
+		menu.getSlot(2, this.getOrder() + 1).setItem(Utils.getGreenGlass());
 
-	SlotSettings getSlotSettings();
+		// If returnButton is true, then add the return button
+		if (isReturnButton()) setupReturnButton(menu);
 
+		menu.open(player);
+	}
+
+	@Override
+	public ItemStack getItem(boolean enchanted) {
+		return null;
+	}
+
+	@Override
+	public SlotSettings getSlotSettings() {
+		return null;
+	}
+
+	@Override
+	public int getOrder() {
+		return SettingsNav.values().length + FantasyProfilesAPI.getMenuList().size() - 1;
+	}
 }

@@ -26,10 +26,8 @@ import cc.happyareabean.fantasyprofiles.api.FantasyProfilesAPI;
 import cc.happyareabean.fantasyprofiles.api.SettingsNavItems;
 import cc.happyareabean.fantasyprofiles.utils.Utils;
 import cc.happyareabean.fantasyprofiles.utils.menu.ServerSettingsUtils;
-import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
-import org.imanity.framework.bukkit.util.items.ItemBuilder;
 import org.ipvp.canvas.Menu;
 import org.ipvp.canvas.slot.SlotSettings;
 

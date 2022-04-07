@@ -44,8 +44,6 @@ public class SettingsCommand implements CommandExecutor {
 			return true;
 		}
 
-		FantasyProfilesAPI.addSettingsMenu(new Test());
-
 		player.sendMessage(Color.translate("&a正在開啟設定..."));
 		new ServerSettingsMenu().display(player);
 
