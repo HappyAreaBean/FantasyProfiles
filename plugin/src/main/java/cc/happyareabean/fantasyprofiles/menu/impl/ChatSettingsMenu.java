@@ -37,7 +37,7 @@ public class ChatSettingsMenu extends AbstractMenu {
 	@Override
 	public Menu build(Player player) {
 
-		Menu.Builder<ChestMenu.Builder> menuBuilder = ChestMenu.builder(6).redraw(true).title(MenuTitleConstant.CHAT_SETTINGS);
+		Menu.Builder<ChestMenu.Builder> menuBuilder = ChestMenu.builder(6).title(MenuTitleConstant.CHAT_SETTINGS);
 		Menu menu = menuBuilder.build();
 
 		ServerSettingsUtils.addSettingNavigation(menu, 0);
