@@ -26,6 +26,7 @@ import cc.happyareabean.fantasyprofiles.commands.MainCommand;
 import cc.happyareabean.fantasyprofiles.commands.ProfileCommand;
 import cc.happyareabean.fantasyprofiles.commands.SettingsCommand;
 import cc.happyareabean.fantasyprofiles.utils.Color;
+import de.tr7zw.changeme.nbtapi.utils.MinecraftVersion;
 import lombok.Getter;
 import lombok.extern.log4j.Log4j2;
 import org.bukkit.Bukkit;
@@ -36,6 +37,11 @@ import java.util.Arrays;
 
 @Log4j2(topic = "FantasyProfiles")
 public class FantasyProfiles extends JavaPlugin {
+
+	static {
+		// Disable NBT API update checker
+		MinecraftVersion.disableUpdateCheck();
+	}
 
 	@Getter public String prefix = Color.translate("&8[&6FantasyProfiles&8] &e");
 	@Getter private static FantasyProfiles instance;

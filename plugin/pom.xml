@@ -74,9 +74,8 @@
         </dependency>
         <dependency>
             <groupId>de.tr7zw</groupId>
-            <artifactId>item-nbt-api-plugin</artifactId>
+            <artifactId>item-nbt-api</artifactId>
             <version>2.9.2</version>
-            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>org.mineacademy</groupId>
@@ -98,6 +97,10 @@
                         <relocation>
                             <pattern>org.ipvp.lib.canvas</pattern>
                             <shadedPattern>cc.happyareabean.fantasyprofiles.lib.canvas</shadedPattern>
+                        </relocation>
+                        <relocation>
+                            <pattern>de.tr7zw.changeme.nbtapi</pattern>
+                            <shadedPattern>cc.happyareabean.fantasyprofiles.lib.nbtapi</shadedPattern>
                         </relocation>
                     </relocations>
                 </configuration>
