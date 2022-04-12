@@ -46,6 +46,7 @@ public class FantasyProfiles extends JavaPlugin {
 	@Getter public String prefix = Color.translate("&8[&6FantasyProfiles&8] &e");
 	@Getter private static FantasyProfiles instance;
 	@Getter private boolean chatPluginLoaded = true;
+	@Getter private static boolean internalDebug = false;
 
 	@Override
 	public void onEnable() {

@@ -27,6 +27,7 @@ import cc.happyareabean.fantasyprofiles.menu.SettingsMenu;
 import cc.happyareabean.fantasyprofiles.menu.SettingsNav;
 import cc.happyareabean.fantasyprofiles.menu.impl.ChatSettingsMenu;
 import cc.happyareabean.fantasyprofiles.menu.impl.ProfileMenu;
+import cc.happyareabean.fantasyprofiles.utils.Debug;
 import cc.happyareabean.fantasyprofiles.utils.ItemBuilder;
 import cc.happyareabean.fantasyprofiles.utils.Utils;
 import org.bukkit.Bukkit;
@@ -51,12 +52,12 @@ public class ServerSettingsUtils {
 		Class<ChatSettingsMenu> targetClass = ChatSettingsMenu.class;
 
 		int currentIndex = startingIndex; // Assign local variables
-		Bukkit.broadcastMessage("Starting Navigation.");
+		Debug.message("Starting Navigation.");
 		long started = System.currentTimeMillis();
 		List<SlotSettings> settingsNav = Arrays.stream(SettingsNav.values())
 				.map(SettingsNav::getSlotSettings)
 				.collect(Collectors.toList()); // Get all the SlotSettings from SettingsNav and turn it into a list.
-		Bukkit.broadcastMessage(FantasyProfilesAPI.getMenuList().size() + "");
+		Debug.message(FantasyProfilesAPI.getMenuList().size() + "");
 		settingsNav.addAll(FantasyProfilesAPI.getMenuList().stream().map(SettingsMenu::getSlotSettings).collect(Collectors.toList())); // Add the SlotSettings from the API (If any)
 		for (SlotSettings selectedSlot : settingsNav) {
 			menu.getSlot(currentIndex).setSettings(selectedSlot);
@@ -64,7 +65,7 @@ public class ServerSettingsUtils {
 		}
 		BinaryMask.builder(menu).item(Utils.getBorderGlass()).pattern("000000000").pattern("111111111").build().apply(menu);
 		long finish = System.currentTimeMillis();
-		Bukkit.broadcastMessage("Used " + (finish - started) + "ms.");
+		Debug.message("Used " + (finish - started) + "ms.");
 	}
 
 	public static void addClickToggle(Menu menu, Slot slot, Toggle toggle) {
