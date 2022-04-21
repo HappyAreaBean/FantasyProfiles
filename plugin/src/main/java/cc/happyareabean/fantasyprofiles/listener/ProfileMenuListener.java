@@ -24,13 +24,13 @@ package cc.happyareabean.fantasyprofiles.listener;
 
 import cc.happyareabean.fantasyprofiles.menu.impl.ServerSettingsMenu;
 import cc.happyareabean.fantasyprofiles.utils.Color;
+import de.tr7zw.changeme.nbtapi.NBTItem;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.ItemStack;
-import org.imanity.framework.bukkit.util.nms.NBTEditor;
 
 public class ProfileMenuListener implements Listener {
 
@@ -38,15 +38,16 @@ public class ProfileMenuListener implements Listener {
 	public void onClick(InventoryClickEvent e) {
 		Player player = (Player) e.getWhoClicked();
 		ItemStack item = e.getCurrentItem();
-		if (e.getCurrentItem() != null && e.getCurrentItem().getItemMeta() != null && e.getCurrentItem().getItemMeta().getDisplayName() != null) {
+		if (item != null && item.getItemMeta() != null && item.getItemMeta().getDisplayName() != null) {
 			if (e.getClickedInventory().getTitle().equalsIgnoreCase(Color.translate("&b&l我的個人檔案"))) {
 				e.setCancelled(true);
-				if (NBTEditor.getString(item, "fantasyprofile") != null) {
-					if (NBTEditor.getString(item, "fantasyprofile").equalsIgnoreCase("settings")) {
+				NBTItem nbti = new NBTItem(item);
+				if (nbti.hasKey("fantasyprofile")) {
+					if (nbti.getString("fantasyprofile").equalsIgnoreCase("settings")) {
 						new ServerSettingsMenu().display(player);
 					}
 
-					if (item.getType() == Material.SKULL_ITEM && item.getDurability() == 3 && NBTEditor.getString(item, "fantasyprofile").equalsIgnoreCase("playerinfo")) {
+					if (item.getType() == Material.SKULL_ITEM && item.getDurability() == 3 && nbti.getString("fantasyprofile").equalsIgnoreCase("playerinfo")) {
 						player.closeInventory();
 						player.performCommand("bstore");
 					}

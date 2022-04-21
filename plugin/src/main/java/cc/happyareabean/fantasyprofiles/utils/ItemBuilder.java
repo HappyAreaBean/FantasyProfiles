@@ -34,7 +34,6 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.LeatherArmorMeta;
 import org.bukkit.inventory.meta.SkullMeta;
-import org.imanity.framework.bukkit.util.nms.NBTEditor;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -175,11 +174,6 @@ public class ItemBuilder implements Listener, Cloneable {
 		meta.addEnchant(Enchantment.PROTECTION_FIRE, 1, false);
 		meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
 		itemStack.setItemMeta(meta);
-		return this;
-	}
-
-	public ItemBuilder tag(Object value, String... key) {
-		this.itemStack = NBTEditor.set(this.itemStack, value, key);
 		return this;
 	}
 

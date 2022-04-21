@@ -77,7 +77,7 @@ public class Utils {
 					|| i == 27 || i == 36
 					|| i == 17 || i == 26
 					|| i == 35 || i == 44)
-				inv.setItem(i, new org.imanity.framework.bukkit.util.items.ItemBuilder(Material.STAINED_GLASS_PANE).name("&f").data(15).build());
+				inv.setItem(i, new ItemBuilder(Material.STAINED_GLASS_PANE).name("&f").data(15).build());
 			if (backButton && (i == (inv.getSize() - 9 + 4))) {
 				inv.setItem(i, new ItemBuilder(Material.BARRIER).name("&c&l返回").build());
 			}

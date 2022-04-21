@@ -37,6 +37,8 @@
     </repositories>
 
     <dependencies>
+
+        <!-- Spigot, bukkit dependencies -->
         <dependency>
             <groupId>org.spigotmc</groupId>
             <artifactId>spigot-api</artifactId>
@@ -44,28 +46,19 @@
             <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>cc.happyareabean</groupId>
-            <artifactId>iSpigot</artifactId>
-            <version>1.0</version>
-            <scope>system</scope>
-            <systemPath>E:/API/ispigot.jar</systemPath>
-        </dependency>
-        <dependency>
-            <groupId>org.imanity.framework</groupId>
-            <artifactId>bukkit-common</artifactId>
-            <version>0.3b1</version>
-        </dependency>
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <version>1.18.22</version>
-        </dependency>
-        <dependency>
-            <groupId>me.clip</groupId>
-            <artifactId>placeholderapi</artifactId>
-            <version>2.11.1</version>
+            <groupId>org.bukkit</groupId>
+            <artifactId>bukkit</artifactId>
+            <version>1.8.8-R0.1-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
+        <dependency>
+            <groupId>org.bukkit</groupId>
+            <artifactId>craftbukkit</artifactId>
+            <version>1.8.8-R0.1-SNAPSHOT</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- Other dependencies -->
         <dependency>
             <groupId>org.ipvp</groupId>
             <artifactId>canvas</artifactId>
@@ -77,10 +70,26 @@
             <artifactId>item-nbt-api</artifactId>
             <version>2.9.2</version>
         </dependency>
+
+        <!-- Plugin dependencies -->
+        <dependency>
+            <groupId>me.clip</groupId>
+            <artifactId>placeholderapi</artifactId>
+            <version>2.11.1</version>
+            <scope>provided</scope>
+        </dependency>
         <dependency>
             <groupId>org.mineacademy</groupId>
             <artifactId>chatcontrolred</artifactId>
             <version>10.10.4</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- Lombok -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.22</version>
             <scope>provided</scope>
         </dependency>
     </dependencies>
@@ -90,19 +99,33 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-shade-plugin</artifactId>
-                <version>3.2.4</version>
+                <version>3.3.0</version>
                 <configuration>
+                    <createDependencyReducedPom>false</createDependencyReducedPom>
+                    <minimizeJar>true</minimizeJar>
+
                     <finalName>FantasyProfiles</finalName>
+
                     <relocations>
                         <relocation>
-                            <pattern>org.ipvp.lib.canvas</pattern>
-                            <shadedPattern>cc.happyareabean.fantasyprofiles.lib.canvas</shadedPattern>
+                            <pattern>org.ipvp.canvas</pattern>
+                            <shadedPattern>cc.happyareabean.fantasyprofiles.libs.canvas</shadedPattern>
                         </relocation>
                         <relocation>
                             <pattern>de.tr7zw.changeme.nbtapi</pattern>
-                            <shadedPattern>cc.happyareabean.fantasyprofiles.lib.nbtapi</shadedPattern>
+                            <shadedPattern>cc.happyareabean.fantasyprofiles.libs.nbtapi</shadedPattern>
                         </relocation>
                     </relocations>
+
+                    <filters>
+                        <filter>
+                            <artifact>*:*</artifact>
+                            <excludes>
+                                <exclude>META-INF/</exclude>
+                                <exclude>LICENSE</exclude>
+                            </excludes>
+                        </filter>
+                    </filters>
                 </configuration>
                 <executions>
                     <execution>
@@ -116,7 +139,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.8.1</version>
+                <version>3.10.1</version>
                 <configuration>
                     <source>8</source>
                     <target>8</target>
