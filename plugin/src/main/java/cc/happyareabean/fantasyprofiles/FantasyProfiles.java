@@ -79,6 +79,7 @@ public class FantasyProfiles extends JavaPlugin {
 	public void registerEvents() {
 		long eventStart = System.currentTimeMillis();
 		Bukkit.getPluginManager().registerEvents(new MenuFunctionListener(), this); // MenuAPI
+		Bukkit.getMessenger().registerOutgoingPluginChannel(this, "bungeecore:info"); // BungeeCore plugin message
 //		Bukkit.getPluginManager().registerEvents(new ProfileMenuListener(), this);
 //		Bukkit.getPluginManager().registerEvents(new MainSettingsMenuListener(), this);
 //		Bukkit.getPluginManager().registerEvents(new PlayerListener(), this);

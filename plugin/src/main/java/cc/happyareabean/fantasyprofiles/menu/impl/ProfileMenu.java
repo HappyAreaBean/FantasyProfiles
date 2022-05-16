@@ -57,7 +57,7 @@ public class ProfileMenu extends AbstractMenu {
 						.skull(player.getName())
 						.build())
 				.clickHandler((playerClicked, clickHandler) -> {
-					playerClicked.performCommand("bstore");
+					Utils.sendBungeeCorePluginMessage(playerClicked, "info", "store");
 					playerClicked.closeInventory();
 				}).build());
 		menu.getSlot(10).setSettings(SlotSettings.builder()

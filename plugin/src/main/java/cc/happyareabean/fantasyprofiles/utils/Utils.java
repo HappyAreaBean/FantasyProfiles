@@ -24,11 +24,16 @@ package cc.happyareabean.fantasyprofiles.utils;
 
 import cc.happyareabean.fantasyprofiles.FantasyProfiles;
 import org.bukkit.Material;
+import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.ipvp.canvas.Menu;
 import org.ipvp.canvas.mask.BinaryMask;
+
+import java.io.ByteArrayOutputStream;
+import java.io.DataOutputStream;
+import java.io.IOException;
 
 public class Utils {
 
@@ -122,6 +127,19 @@ public class Utils {
 			}
 		}
 		mask.build().apply(menu);
+	}
+
+	public static void sendBungeeCorePluginMessage(Player player, String subChannel, String message) {
+		ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+		DataOutputStream out = new DataOutputStream(byteArrayOutputStream);
+
+		try {
+			out.writeUTF(message);
+		} catch (IOException ex) {
+			ex.printStackTrace();
+		}
+
+		player.sendPluginMessage(FantasyProfiles.getInstance(), "bungeecore:" + subChannel, byteArrayOutputStream.toByteArray());
 	}
 
 }
